@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AnimeTech Portfolio | Creative Tech Universe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#fff0f4",
+                        "secondary-fixed": "#ffdad8",
+                        "secondary-fixed-dim": "#ffb3b0",
+                        "tertiary-fixed": "#86fb94",
+                        "surface-container-high": "#ffe0eb",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#bb0055",
+                        "inverse-on-surface": "#ffecf1",
+                        "on-surface": "#2e1320",
+                        "on-primary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffd9df",
+                        "tertiary-container": "#008734",
+                        "outline-variant": "#e4bdc3",
+                        "on-secondary-fixed-variant": "#812729",
+                        "on-secondary-container": "#741d21",
+                        "primary-container": "#e40069",
+                        "surface-bright": "#fff8f8",
+                        "on-tertiary-container": "#f7fff2",
+                        "inverse-surface": "#452735",
+                        "accent-dark": "#b0220c",
+                        "secondary": "#a03e3f",
+                        "tertiary-fixed-dim": "#6ade7b",
+                        "secondary-dark": "#810b09",
+                        "on-primary-fixed": "#3f0018",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#00531c",
+                        "inverse-primary": "#ffb1c2",
+                        "primary-dark": "#ea106b",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface": "#fff8f8",
+                        "bg-dark": "#0e0107",
+                        "on-tertiary-fixed": "#002107",
+                        "bg-light": "#fef1f7",
+                        "surface-dim": "#fdcddf",
+                        "secondary-container": "#fd8583",
+                        "on-primary-fixed-variant": "#8f003f",
+                        "on-error-container": "#93000a",
+                        "on-background": "#2e1320",
+                        "background": "#fff8f8",
+                        "text-dark": "#feecf4",
+                        "surface-container-highest": "#ffd8e6",
+                        "error-container": "#ffdad6",
+                        "primary": "#b70052",
+                        "accent-orange": "#f3644f",
+                        "tertiary": "#006b27",
+                        "on-secondary-fixed": "#410006",
+                        "on-surface-variant": "#5b3f45",
+                        "primary-fixed-dim": "#ffb1c2",
+                        "surface-container": "#ffe8ef",
+                        "outline": "#906e75",
+                        "surface-variant": "#ffd8e6",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Syne"],
+                        "headline-lg": ["Syne"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Syne"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .anime-sparkle {
+            position: relative;
+        }
+        .anime-sparkle::after {
+            content: '✦';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            color: #ef1570;
+            font-size: 1.2rem;
+            animation: sparkle-float 3s ease-in-out infinite;
+        }
+        @keyframes sparkle-float {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.3) rotate(15deg); opacity: 0.7; }
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(183, 0, 82, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-bg-light text-on-surface font-body-md overflow-x-hidden selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-white/40 backdrop-blur-md border-b border-white/10 shadow-sm shadow-primary/10">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary tracking-tighter">
+                AnimeTech
+            </div>
+<ul class="hidden md:flex gap-8">
+<li><a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md hover:text-primary transition-all duration-300 hover:scale-105" href="#hero">Hero</a></li>
+<li><a class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-all duration-300 hover:scale-105" href="#about">About</a></li>
+<li><a class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-all duration-300 hover:scale-105" href="#tools">Tools</a></li>
+<li><a class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-all duration-300 hover:scale-105" href="#services">Services</a></li>
+<li><a class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-all duration-300 hover:scale-105" href="#connect">Connect</a></li>
+</ul>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md font-bold btn-glow transition-transform active:scale-95">
+                Get in Touch
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto overflow-hidden" id="hero">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center w-full">
+<div class="md:col-span-6 space-y-8 z-10">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        FUTURE-READY DEVELOPER
+                    </div>
+<h1 class="font-headline-xl text-headline-xl leading-none text-on-surface anime-sparkle inline-block">
+                        Welcome to My <span class="text-primary">Tech Universe!</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Engineering immersive digital experiences with the precision of a high-tech HUD and the soul of modern anime aesthetics. Let's build the future, one pixel at a time.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md font-bold transition-all hover:scale-105 btn-glow">
+                            Explore Projects
+                        </button>
+<button class="glass border border-primary/20 text-primary px-8 py-4 rounded-xl font-label-md text-label-md font-bold transition-all hover:bg-primary/5">
+                            Read Bio
+                        </button>
+</div>
+</div>
+<div class="md:col-span-6 relative flex justify-center items-center">
+<div class="absolute w-[120%] h-[120%] bg-primary-fixed/20 rounded-full blur-3xl -z-10"></div>
+<div class="relative w-full max-w-md aspect-[4/5] rounded-[40px] overflow-hidden glass border-4 border-white/40 shadow-2xl shadow-primary/20">
+<img alt="Hero Avatar" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVEsMCZ6pTfOLDLc17kThfiFQGJ36wZCDP_DPNr2TCdwgcTH3FlDryNk6btDdfmEif33vffr8Govia3L0Lw6-__ILhW3SU80nGtKZKf1n8iAaZD66mRUkdl0-GVpYVhv0qsotblJb7OADkZbQj63kV6iHcXgfc7uMT2Jhio4hYRhgeUwoZ1Fy9kfe4kfqZBz-LIAOQnfBTaCKqG4BE1xgqm8mf6F0KUdSpAl2eO9va0-IxLq5uGJldpr5YPVGy1eRjXQezAhGWX-s"/>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface-container-low/50" id="about">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-5 order-2 md:order-1">
+<div class="relative group">
+<div class="absolute inset-0 bg-accent-orange/10 rounded-[60px] blur-xl group-hover:blur-2xl transition-all"></div>
+<div class="relative aspect-square rounded-[60px] overflow-hidden border-8 border-white shadow-xl shadow-secondary/10">
+<img alt="About Avatar" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtiN5JppAM1T7r95y_iDerLEB_TCzuspgYiM2n3AAYgAUcVBdVjQkUF7nwBLVD37tYhqIT2NEoHcY4FNTxHuMEfVCWSklld8m_2JNIG8x9qB3vNkVrz8Or8kpNoOr_BOp9aaTFu_FrxGI3Uf-iSndTD2YfnqyM9k1CTkhks_kNEsuZy1L_8qqlyT574m0PNLeKvrQh770-8LeHrB5vYQWJl-p4Dm5kf9LNRnycw5e40-xfuv70zdnAe69i_S-HAUEf9ZL-faYUEyc"/>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 order-1 md:order-2 space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+<span class="text-accent-orange block text-label-md mb-2">/ THE CREATIVE ENGINE</span>
+                        Crafting Vibrant Precision
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        I am a software engineer and UI designer obsessed with the intersection of technical proficiency and aesthetic excellence. My workflow is inspired by "tech-wear" subcultures—efficient, modular, and visually striking.
+                    </p>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-white text-primary border border-primary/20 rounded-full font-label-sm text-label-sm font-bold shadow-sm">Frontend Dev</span>
+<span class="px-4 py-2 bg-white text-secondary border border-secondary/20 rounded-full font-label-sm text-label-sm font-bold shadow-sm">UI/UX Design</span>
+<span class="px-4 py-2 bg-white text-accent-orange border border-accent-orange/20 rounded-full font-label-sm text-label-sm font-bold shadow-sm">Creative Engineering</span>
+<span class="px-4 py-2 bg-white text-tertiary border border-tertiary/20 rounded-full font-label-sm text-label-sm font-bold shadow-sm">Anime Art Tech</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Tools Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden" id="tools">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Tech Toolbox</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                        The digital forge where concepts become reality. High-precision tools for modern building.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<!-- Tool Cards -->
+<div class="glass p-8 rounded-3xl flex flex-col items-center gap-4 hover:border-primary transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl">code</span>
+</div>
+<span class="font-label-md text-label-md">React</span>
+</div>
+<div class="glass p-8 rounded-3xl flex flex-col items-center gap-4 hover:border-primary transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl">layers</span>
+</div>
+<span class="font-label-md text-label-md">Tailwind</span>
+</div>
+<div class="glass p-8 rounded-3xl flex flex-col items-center gap-4 hover:border-primary transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl">terminal</span>
+</div>
+<span class="font-label-md text-label-md">TypeScript</span>
+</div>
+<div class="glass p-8 rounded-3xl flex flex-col items-center gap-4 hover:border-primary transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl">draw</span>
+</div>
+<span class="font-label-md text-label-md">Figma</span>
+</div>
+<div class="glass p-8 rounded-3xl flex flex-col items-center gap-4 hover:border-primary transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl">animation</span>
+</div>
+<span class="font-label-md text-label-md">Framer</span>
+</div>
+<div class="glass p-8 rounded-3xl flex flex-col items-center gap-4 hover:border-primary transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl">storage</span>
+</div>
+<span class="font-label-md text-label-md">Firebase</span>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface-container" id="services">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-20 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Available Services</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                        Elevating digital landscapes through strategic design and robust development practices.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-base md:gap-gutter">
+<!-- Service Card 1 -->
+<div class="glass p-12 rounded-[40px] border-none shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 group flex flex-col h-full">
+<div class="mb-8 w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">developer_mode_tv</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6 group-hover:text-primary transition-colors">Frontend Development</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-auto">
+                            Building performant, accessible, and reactive web applications using modern stacks like React, Next.js, and Vite.
+                        </p>
+<div class="mt-8 border-t border-outline-variant/30 pt-6">
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-label-sm font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Responsive Layouts
+                                </li>
+<li class="flex items-center gap-2 text-label-sm font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> SEO Optimization
+                                </li>
+</ul>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-primary text-on-primary p-12 rounded-[40px] shadow-2xl shadow-primary/30 transition-all duration-500 group flex flex-col h-full md:scale-105 z-10">
+<div class="mb-8 w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">token</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-6">UI/UX Design</h3>
+<p class="font-body-md text-body-md text-white/80 mb-auto">
+                            Crafting anime-inspired interfaces that prioritize user flow while delivering high-impact visual energy.
+                        </p>
+<div class="mt-8 border-t border-white/20 pt-6">
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-label-sm font-bold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> High-Fi Prototypes
+                                </li>
+<li class="flex items-center gap-2 text-label-sm font-bold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> Visual Storytelling
+                                </li>
+</ul>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="glass p-12 rounded-[40px] border-none shadow-sm hover:shadow-2xl hover:shadow-secondary/10 transition-all duration-500 group flex flex-col h-full">
+<div class="mb-8 w-14 h-14 bg-accent-orange rounded-2xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">auto_fix_high</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6 group-hover:text-accent-orange transition-colors">Creative Engineering</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-auto">
+                            Specialized solutions for unique digital interactions, micro-animations, and experimental web experiments.
+                        </p>
+<div class="mt-8 border-t border-outline-variant/30 pt-6">
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-label-sm font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-accent-orange text-[18px]">check_circle</span> Motion Graphics
+                                </li>
+<li class="flex items-center gap-2 text-label-sm font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-accent-orange text-[18px]">check_circle</span> Interactive Art
+                                </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Connect Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="connect">
+<div class="glass rounded-[60px] p-12 md:p-24 overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/3 h-full hidden lg:block">
+<img alt="Connect Illustration" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyyAM4iXjVOicI7y-5tE_Q0SAL2_OtOeqWAKgFgb3brYfV-KzgrGM3y4JuyqBKiWO4KTrTliEOhq3jFPFqpVPYszeNSYrCEqETI_MOws8hdudosA79wqirEB0F91VJdO43pq1oGETv47WtAK6JMD9n6hUZ6UClnLW8sVRelBZYgSBBLv3Wutlz1prcRYpVsPvSKdPpJJPzx_hJW4huTWJJ1mg99daEo7b8Y8wGyFtdM5cvVmIGaOsbZ1gdSJOKXSd3X_jtaha1rBw"/>
+</div>
+<div class="lg:w-2/3 relative z-10 space-y-12">
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Let's <span class="text-primary italic">Connect</span></h2>
+<div class="flex flex-wrap gap-6">
+<a class="w-14 h-14 rounded-full glass border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-14 h-14 rounded-full glass border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+<a class="w-14 h-14 rounded-full glass border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+<a class="w-14 h-14 rounded-full glass border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+</div>
+<div class="pt-8">
+<button class="bg-primary text-on-primary px-12 py-6 rounded-3xl font-headline-lg text-headline-lg btn-glow flex items-center gap-4 transition-transform hover:scale-105 active:scale-95">
+                            Book a Chat
+                            <span class="material-symbols-outlined text-3xl">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-[800px] mx-auto" id="contact">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Send a Transmission</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Drop a message for collaborations or just a friendly hello.</p>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary px-2">Name</label>
+<input class="w-full bg-white/50 border border-outline-variant/30 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40" placeholder="Your Name" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary px-2">Email</label>
+<input class="w-full bg-white/50 border border-outline-variant/30 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40" placeholder="your@email.com" required="" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary px-2">Message</label>
+<textarea class="w-full bg-white/50 border border-outline-variant/30 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40" placeholder="Tell me about your project..." required="" rows="5"></textarea>
+</div>
+<button class="w-full bg-on-background text-background font-bold py-5 rounded-2xl hover:bg-primary transition-all duration-300" type="submit">
+                    Submit Transmission
+                </button>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[40px] md:rounded-t-[80px] border-t border-outline-variant/30 relative overflow-hidden min-h-[400px]">
+<!-- Background Image Placement -->
+<div class="absolute inset-0 z-0">
+<img alt="Footer Background" class="w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc5Vbo6G-5WpzE084IRmfSby2lze57N1s5T4bi8cD57Un2199qGQTgpwSIQIe-pRoYzz8cqC2El4yhLXBQVOkYr4RyHSbpnP0C0fZok1KwlvlEWrP45BY9bHGBF1HvfP4rRYzQ6byEm2p00hJf5CDPW27gmYiCfT42Rq2xF6Ic1tbSVvNS6KC3fGsaR5T_NAWbaHCY_UFjs2Hn_muQJuOZiP6yYDH-OC8-12mFdFTt5wdRFPPImn5mSQN5TRFLl1sFQakHx2NzKdk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-bg-light via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 py-24 px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-12 max-w-container-max mx-auto">
+<div class="font-headline-xl text-headline-xl text-on-surface group">
+                Anime<span class="text-primary group-hover:text-accent-orange transition-colors">Tech</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-accent-orange transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-accent-orange transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-accent-orange transition-colors" href="#">Github</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-accent-orange transition-colors" href="#">Twitter</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-center border-t border-outline-variant/20 pt-8 w-full max-w-md">
+                © 2024 AnimeTech. Crafted with futuristic precision.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple scroll spy for active navigation state
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+                link.classList.add('text-on-surface-variant', 'font-medium');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.remove('text-on-surface-variant', 'font-medium');
+                    link.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+                }
+            });
+        });
+
+        // Form submission micro-interaction
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Transmission Sent! ✓";
+            btn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-tertiary-container', 'text-on-tertiary-container');
+                e.target.reset();
+            }, 3000);
+        });
+    </script>
+</body></html>
