@@ -1,15 +1,44 @@
-# 🌸 Anime-Themed Tech Portfolio
+# Anime-Themed Tech Portfolio
 
-> A modern, highly responsive single-page portfolio website blending a clean tech aesthetic with vibrant anime-inspired design tokens. Featuring a custom illustrated character mascot across distinct structural layout sections.
+> A modern, single-page portfolio **template** blending clean tech UI with vibrant anime-inspired design tokens and a custom character mascot across every section.
 
-<!-- PROJECT BANNER -->
 <img src="./public/banner.png" alt="Project Banner" width="100%" style="border-radius: 8px;" />
 
 ---
 
-## 🎨 Design System & Tokens
+## Demo presentation
 
-This project implements a dynamic light and dark theme using explicit custom CSS properties tailored around custom palettes:
+Presentation slides for the project demo: [View on Canva](https://canva.link/7zclano2slbt766)
+
+---
+
+## Customise this template
+
+All copy, links, stats, and character paths live in one file:
+
+```text
+src/data/siteContent.js
+```
+
+Replace placeholders there (brand name, project cards, social URLs, resume PDF path, etc.) before publishing. Drop your resume at `public/resume.pdf` to match the Hero “Resume” button.
+
+### Character assets (`public/Charaters/`)
+
+| File | Used in |
+|------|---------|
+| `Hero.png` | Hero |
+| `about.png` | About |
+| `tools.png` | Tools |
+| `services.png` | Services |
+| `lets-connect.png` | Connect |
+| `thankyou.png` | Contact |
+| `background.png` | Footer landscape |
+| `intro.mp4` | Optional hero video (`HERO.showIntroVideo`) |
+| `background2.png` | Spare landscape — swap into `FOOTER.backgroundSrc` if you prefer |
+
+---
+
+## Design tokens
 
 ```css
 :root[data-theme="light"] {
@@ -19,100 +48,68 @@ This project implements a dynamic light and dark theme using explicit custom CSS
   --secondary: #f6807e;
   --accent: #f3644f;
 }
-:root[data-theme="dark"] {
-  --text: #feecf4;
-  --background: #0e0107;
-  --primary: #ea106b;
-  --secondary: #810b09;
-  --accent: #b0220c;
-}
 ```
 
-**Typography Strategy:**
-
-| Role | Font | Purpose |
-|------|------|---------|
-| **Headings** | `Space Grotesk` | Bold, geometric anime-tech feel |
-| **Body Text** | `Plus Jakarta Sans` | Clean technical readability |
+| Role | Font |
+|------|------|
+| Headings | Space Grotesk |
+| Body | Plus Jakarta Sans |
 
 ---
 
-## 🗂️ Project Architecture
-
-```text
-Anime-themed-Portfolio/
-├── figma/                   # 🎨 Design tokens & configurations
-│   ├── figma.mcp.config.json
-│   └── design-tokens.json   
-├── public/                  # 🖼️ Static assets (Keep images here)
-│   ├── banner.png           
-│   ├── logo.png             
-│   └── background-footer.png 
-├── src/                     # 💻 Core frontend code
-│   ├── components/          # Only shared, reusable UI pieces
-│   │   └── ProjectCard.jsx  
-│   ├── index.css            # Your custom theme CSS variables
-│   ├── App.jsx              # All portfolio sections live cleanly here
-│   └── main.jsx             
-├── DESIGN.md                
-└── README.md              # Workshop guide & repository presentation table
-```
-
----
-
-## 🛠️ Essential Portfolio Breakdown
-
-The web layout flows dynamically down a single-page interactive experience divided into six core operational pillars:
+## Sections
 
 | # | Section | Description |
 |---|---------|-------------|
-| 1 | **Hero Zone** | Bold tagline announcement anchored by the primary character illustration |
-| 2 | **About Section** | Narrative overview coupled with stylized skill badges |
-| 3 | **Tools Section** | Interactive tech-stack showcase grid featuring custom hover transitions |
-| 4 | **Services Grid** | Distinct service cards detailing development and design offerings |
-| 5 | **Let's Connect** | Clean social profile badge integrations alongside call execution targets |
-| 6 | **Get in Touch** | A functional minimalist contact form floating above a landscape backdrop |
+| 1 | Hero | Tagline + character + Explore / Resume CTAs |
+| 2 | About | Bio, skill badges, placeholder stats |
+| 3 | Tools | Tech stack grid + character |
+| 4 | Services | Three service cards (middle featured) |
+| 5 | Works | Featured project placeholders |
+| 6 | Connect | Socials + Book a Chat |
+| 7 | Contact | Transmission form + thank-you character |
+| 8 | Footer | Brand + links over landscape art |
 
 ---
 
-## 🚀 Getting Started
+## Getting started
 
-### Prerequisites
-
-Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
-
-### Installation
-
-**1.** Clone the repository:
 ```bash
 git clone https://github.com/your-username/Anime-themed-Portfolio.git
-```
-
-**2.** Navigate to the project directory:
-```bash
 cd Anime-themed-Portfolio
-```
-
-**3.** Install dependencies:
-```bash
 npm install
-```
-
-**4.** Run the local development server:
-```bash
 npm run dev
 ```
 
 ---
 
+## Deploy on Vercel
+
+This is a Vite + React SPA. Config is in `vercel.json` (`build` → `dist`).
+
+### Option A — Vercel Dashboard (recommended)
+
+1. Push this repo to GitHub (include your latest `src/` changes).
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
+3. Leave defaults (Framework: Vite, Build: `npm run build`, Output: `dist`).
+4. Click **Deploy**.
+
+### Option B — Vercel CLI
+
+```bash
+npm i -g vercel
+vercel          # preview
+vercel --prod   # production
+```
+
+After deploy, set your custom domain under **Project → Settings → Domains** if needed.
+
+---
+
 <div align="center">
 
-Made with 🌸 by **Shakiran Nannyombi**
+Made with care as an open portfolio template
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Shakiran-Nannyombi)
-&nbsp;
-[![Portfolio](https://img.shields.io/badge/Portfolio-ef1570?style=flat-square&logo=firefox&logoColor=white)](https://github.com/Shakiran-Nannyombi/Anime-themed-Portfolio)
-
-<sub>© 2026 Shakiran Nannyombi · MIT License</sub>
+<sub>© 2026 · MIT License · Replace brand & links in <code>siteContent.js</code></sub>
 
 </div>

@@ -1,16 +1,5 @@
 import React, { useState } from 'react';
-
-// ── CUSTOMISE: Replace these values with your own ──────────────────────────
-const CONTACT_SECTION = {
-  headline:  'Send a Transmission',
-  subtext:   'Drop a message for collaborations or just a friendly hello.',
-  // Set to your own mailto or a FormSubmit/Netlify endpoint
-  formAction: '#',
-  // Character shown beside the form
-  characterSrc: '/Charaters/thankyou.png',
-  characterAlt: 'Thank you character illustration',
-};
-// ──────────────────────────────────────────────────────────────────────────
+import { CONTACT } from '../data/siteContent';
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -24,44 +13,41 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      style={{ padding: '120px 24px', background: 'var(--color-surface-container-low)' }}
+      className="section-panel"
+      style={{ padding: '48px 24px' }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-
-        {/* Wrapper with character */}
         <div className="contact-layout" style={{
-          display: 'grid', gridTemplateColumns: '1fr auto',
-          gap: '64px', alignItems: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 'clamp(16px, 2.5vw, 32px)',
+          flexWrap: 'wrap',
         }}>
-
-          {/* Form column */}
-          <div style={{ maxWidth: '680px', width: '100%' }}>
-            {/* Header */}
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="contact-copy" style={{ flex: '0 1 520px', width: '100%', maxWidth: '520px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '20px' }}>
               <h2 style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 700, fontSize: 'clamp(28px, 3.5vw, 40px)',
+                fontWeight: 700, fontSize: 'clamp(26px, 3.2vw, 36px)',
                 lineHeight: 1.15, letterSpacing: '-0.01em',
-                color: 'var(--color-on-surface)', margin: '0 0 12px',
-              }}>{CONTACT_SECTION.headline}</h2>
+                color: 'var(--color-on-surface)', margin: '0 0 8px',
+              }}>{CONTACT.headline}</h2>
               <p style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: '16px', lineHeight: '1.65',
                 color: 'var(--color-on-surface-variant)', margin: 0,
-              }}>{CONTACT_SECTION.subtext}</p>
+              }}>{CONTACT.subtext}</p>
             </div>
 
-            {/* Form */}
             <form
               onSubmit={handleSubmit}
-              action={CONTACT_SECTION.formAction}
+              action={CONTACT.formAction}
               style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
             >
-              {/* Name + Email row */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }} className="form-row">
                 {[
                   { id: 'cf-name',  label: 'Name',  type: 'text',  placeholder: 'Your Name',      required: true  },
-                  { id: 'cf-email', label: 'Email', type: 'email', placeholder: 'your@email.com', required: true  },
+                  { id: 'cf-email', label: 'Email', type: 'email', placeholder: 'you@example.com', required: true  },
                 ].map(f => (
                   <div key={f.id} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     <label htmlFor={f.id} style={{
@@ -70,7 +56,7 @@ export default function Contact() {
                       color: 'var(--color-primary)', textTransform: 'uppercase',
                     }}>{f.label}</label>
                     <input
-                      id={f.id} type={f.type} placeholder={f.placeholder} required={f.required}
+                      id={f.id} name={f.id} type={f.type} placeholder={f.placeholder} required={f.required}
                       style={{
                         background: 'rgba(255,255,255,0.7)',
                         border: '1.5px solid rgba(144,110,117,0.20)',
@@ -86,7 +72,6 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Message */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <label htmlFor="cf-message" style={{
                   fontFamily: "'Space Grotesk', sans-serif",
@@ -94,7 +79,7 @@ export default function Contact() {
                   color: 'var(--color-primary)', textTransform: 'uppercase',
                 }}>Message</label>
                 <textarea
-                  id="cf-message" rows={5} required
+                  id="cf-message" name="cf-message" rows={5} required
                   placeholder="Tell me about your project or idea..."
                   style={{
                     background: 'rgba(255,255,255,0.7)',
@@ -110,7 +95,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Submit */}
               <button
                 type="submit"
                 style={{
@@ -132,19 +116,24 @@ export default function Contact() {
             </form>
           </div>
 
-          {/* Character */}
-          <div className="contact-character" style={{ width: '240px', flexShrink: 0, textAlign: 'center' }}>
+          <div className="contact-character" style={{
+            flex: '0 0 auto',
+            width: 'min(300px, 36vw)',
+            textAlign: 'center',
+          }}>
             <img
-              src={CONTACT_SECTION.characterSrc}
-              alt={CONTACT_SECTION.characterAlt}
+              src={CONTACT.characterSrc}
+              alt={CONTACT.characterAlt}
+              className="character-img"
               style={{
-                width: '100%', objectFit: 'contain',
-                filter: 'drop-shadow(0 16px 32px rgba(183,0,82,0.12))',
-                animation: 'float 6s ease-in-out infinite',
+                width: '100%',
+                height: 'auto',
+                objectFit: 'contain',
+                display: 'block',
+                filter: 'drop-shadow(0 16px 32px rgba(183,0,82,0.16))',
               }}
             />
           </div>
-
         </div>
       </div>
     </section>

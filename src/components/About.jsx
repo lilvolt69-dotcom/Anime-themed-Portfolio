@@ -1,36 +1,13 @@
 import React from 'react';
-
-// ── CUSTOMISE: Replace these values with your own ──────────────────────────
-const ABOUT = {
-  eyebrow:     '/ THE CREATIVE ENGINE',
-  headline:    'Crafting Vibrant Precision',
-  body:        'I am a software engineer and UI designer obsessed with the intersection of technical proficiency and aesthetic excellence. My workflow is inspired by "tech-wear" subcultures — efficient, modular, and visually striking. I build things that feel as good as they look.',
-  // Skill badges — add/remove as needed
-  badges: [
-    { label: 'Frontend Dev',          color: 'var(--color-primary)',   border: 'rgba(183,0,82,0.2)'   },
-    { label: 'UI/UX Design',          color: 'var(--color-secondary)', border: 'rgba(160,62,63,0.2)'  },
-    { label: 'Creative Engineering',  color: '#f3644f',                border: 'rgba(243,100,79,0.2)' },
-    { label: 'Anime Art Tech',        color: '#006b27',                border: 'rgba(0,107,39,0.2)'   },
-  ],
-  // Stat counters — replace with your real numbers
-  stats: [
-    { value: '00+', label: 'Projects Shipped' },
-    { value: '00+', label: 'Happy Clients'    },
-    { value: '00+', label: 'Years Experience' },
-  ],
-  // Character image — swap for your own illustration
-  characterSrc: '/Charaters/about.png',
-  characterAlt: 'About section character illustration',
-};
-// ──────────────────────────────────────────────────────────────────────────
+import { ABOUT } from '../data/siteContent';
 
 export default function About() {
   return (
     <section
       id="about"
+      className="section-panel"
       style={{
-        padding: '120px 24px',
-        background: 'rgba(255,240,244,0.5)',
+        padding: '64px 24px',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
@@ -38,32 +15,31 @@ export default function About() {
           display: 'grid', gridTemplateColumns: '1fr 1.4fr',
           gap: '80px', alignItems: 'center',
         }}>
-
-          {/* ─── Character image ─── */}
           <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-            {/* Decorative accent blob */}
             <div aria-hidden="true" style={{
               position: 'absolute', inset: 0,
               background: 'rgba(243,100,79,0.08)',
               borderRadius: '60px', filter: 'blur(40px)',
             }} />
-            <div style={{
+            <div className="about-character-frame" style={{
               position: 'relative',
               border: '6px solid rgba(255,255,255,0.9)',
               borderRadius: '60px',
-              overflow: 'hidden',
+              overflow: 'visible',
               boxShadow: '0 20px 60px rgba(183,0,82,0.10)',
-              background: '#ffd8e6',
+              background: 'transparent',
               aspectRatio: '1/1', width: '100%', maxWidth: '380px',
-              display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
               <img
                 src={ABOUT.characterSrc}
                 alt={ABOUT.characterAlt}
+                className="character-img"
                 style={{
                   width: '100%', height: '100%',
-                  objectFit: 'cover', objectPosition: 'top',
+                  objectFit: 'contain', objectPosition: 'center',
                   transition: 'transform 0.5s ease',
+                  background: 'transparent',
                 }}
                 onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
                 onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
@@ -71,7 +47,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* ─── Text column ─── */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             <div>
               <p style={{
@@ -99,7 +74,6 @@ export default function About() {
               {ABOUT.body}
             </p>
 
-            {/* Skill badges */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {ABOUT.badges.map(b => (
                 <span key={b.label} style={{
@@ -117,7 +91,6 @@ export default function About() {
               ))}
             </div>
 
-            {/* Stats row */}
             <div style={{
               display: 'flex', gap: '40px', flexWrap: 'wrap',
               paddingTop: '8px',
@@ -139,7 +112,6 @@ export default function About() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>
